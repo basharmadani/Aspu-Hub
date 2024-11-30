@@ -25,7 +25,9 @@ public function up()
         $table->timestamps();
 
       #  $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
-        $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+        $table->foreign('user_id')->references('id
+
+        g')->on('users')->onDelete('cascade');
         $table->foreign('parent_comment_id')->references('id')->on('comments')->onDelete('cascade');
     });
 }
