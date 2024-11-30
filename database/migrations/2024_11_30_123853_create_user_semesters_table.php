@@ -16,9 +16,12 @@ return new class extends Migration
         Schema::create('user_semesters', function (Blueprint $table) {
 
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('specialization_id')->constrained('specializations')->onDelete('cascade');
+            $table->unsignedBigInteger('userID');
+            $table->unsignedBigInteger('SpecializationID');
+
             $table->date('start_date');
+            $table->foreign(columns: 'userID')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign(columns: 'SpecializationID')->references('SpecializationID')->on('specializations')->onDelete('cascade');
             $table->date('end_date');
             $table->integer('semester_number');
             $table->integer('semester_hours');

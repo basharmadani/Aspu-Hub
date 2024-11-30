@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
 
             $table->unsignedBigInteger('subjectID');
-            $table->foreign('subectID')->references('subjectID')->on('subjects')->onDelete('cascade');
+            $table->foreign('subjectID')->references('id')->on('subjects')->onDelete('cascade');
             $table->unsignedBigInteger('PreviousSubjectID');
-            $table->foreign('PreviousSubjectID')->references('subjectID')->on('subjects')->onDelete('cascade');
+            $table->foreign('PreviousSubjectID')->references('id')->on('subjects')->onDelete('cascade');
             $table->timestamps();
         });
     }

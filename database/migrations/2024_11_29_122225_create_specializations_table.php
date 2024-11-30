@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('specializations', function (Blueprint $table) {
 
-            $table->unsignedBigInteger('SpecializationID')->autoIncrement();
+            $table->id('SpecializationID');
 
             $table->string('name');
             $table->string('description');

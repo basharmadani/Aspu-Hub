@@ -15,13 +15,12 @@ return new class extends Migration
     {
         Schema::create('docs', function (Blueprint $table) {
 
-
-
-            $table->id();
-            $table->unsignedDecimal('docs_type_id');
+            $table->id('DocID');
+            $table->unsignedBigInteger('docs_type_id');
             $table->foreign('docs_type_id')->references('id')->on('docs_types')->onDelete('cascade');
-            $table->string('doc_name');
+
             $table->string('doc_url');
+
             $table->timestamps();
         });
     }

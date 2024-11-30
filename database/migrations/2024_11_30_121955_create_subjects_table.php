@@ -20,8 +20,9 @@ return new class extends Migration
             $table->text('Description');
             $table->float('paraticalMark');
             $table->float('abstractMark');
-            $table->unsignedBigInteger('SpecializationID');
-            $table->foreign('SpecializationID')->references('SpecializationID')->on('Specialization')->onDelete('cascade');
+           $table->unsignedBigInteger('SpecializationID');
+
+            $table->foreign('SpecializationID')->references('SpecializationID')->on('specializations')->onDelete('cascade');
             $table->timestamps();
 
 
