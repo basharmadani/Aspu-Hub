@@ -13,16 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('videos', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('post_id');
-            $table->string('video');
             $table->timestamps();
-
-            $table->foreign('post_id')->references('uuid')->on('posts')->onDelete('cascade');
         });
     }
-
 
     /**
      * Reverse the migrations.
@@ -31,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('videos');
+        Schema::dropIfExists('posts');
     }
 };
