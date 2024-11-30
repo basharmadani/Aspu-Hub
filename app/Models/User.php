@@ -45,4 +45,21 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Role::class, 'roleID');
     }
+
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function votes()
+    {
+        return $this->hasMany(Vote::class);
+    }
+
+    public function favoritePosts()
+    {
+        return $this->hasMany(FavoritePost::class);
+    }
+
 }

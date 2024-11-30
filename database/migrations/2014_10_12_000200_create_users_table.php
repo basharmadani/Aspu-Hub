@@ -14,7 +14,7 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-
+            $table->id();
             $table->string('first_name');
             $table->string('last_name');
             $table->date('birth_date');
@@ -27,13 +27,12 @@ class CreateUsersTable extends Migration
             $table->string('phone_number')->nullable();
             $table->string('country')->nullable();
             $table->string('current_location')->nullable();
-
-            $table->id(column: 'roleID')->autoIncrement();
+            $table->unsignedBigInteger('roleID');
             $table->boolean('is_blocked')->default(false);
             $table->timestamps();
 
+           # $table->foreign('roleID')->references('roleID')->on('roles')->onDelete('cascade');
             $table->foreign('roleID')->references('roleID')->on('roles')->onDelete('cascade');
-
         });
     }
 
