@@ -13,16 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('photos', function (Blueprint $table) {
+        Schema::create('docs_types', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('post_id');
-            $table->string('photo');
+            $table->string('name');
+            $table->string('description');
             $table->timestamps();
-
-            $table->foreign('post_id')->references('uuid')->on('posts')->onDelete('cascade');
         });
     }
-
 
     /**
      * Reverse the migrations.
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('photos');
+        Schema::dropIfExists('docs_types');
     }
 };

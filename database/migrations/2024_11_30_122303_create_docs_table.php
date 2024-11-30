@@ -13,16 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tags', function (Blueprint $table) {
-            $table->id();
-            $table->string('tag_name');
-            $table->unsignedBigInteger('post_id');
-            $table->timestamps();
+        Schema::create('docs', function (Blueprint $table) {
 
-            $table->foreign('post_id')->references('uuid')->on('posts')->onDelete('cascade');
+
+
+            $table->id();
+            $table->unsignedDecimal('docs_type_id');
+            $table->foreign('docs_type_id')->references('id')->on('docs_types')->onDelete('cascade');
+            $table->string('doc_name');
+            $table->string('doc_url');
+            $table->timestamps();
         });
     }
-
 
     /**
      * Reverse the migrations.
@@ -31,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tags');
+        Schema::dropIfExists('docs');
     }
 };

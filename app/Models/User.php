@@ -62,4 +62,14 @@ class User extends Authenticatable
         return $this->hasMany(FavoritePost::class);
     }
 
+    public function userSemesters()
+    {
+        return $this->hasMany(UserSemester::class);
+    }
+
+    public function userSubjects()
+    {
+        return $this->hasMany(UserSubject::class);
+    }
+
 }
