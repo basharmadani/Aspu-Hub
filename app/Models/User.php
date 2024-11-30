@@ -24,7 +24,7 @@ class User extends Authenticatable
         'phone_number',
         'country',
         'current_location',
-        'role_id',
+        'roleID',
         'is_blocked',
     ];
 
@@ -71,5 +71,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(UserSubject::class);
     }
+    public function posts()
+    {
+        return $this->morphMany(Post::class, 'location');
+    }
 
 }
+
